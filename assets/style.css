@@ -778,6 +778,33 @@ small {
 }
 
 .faq-item {
+  @media (max-width: 375px) {
+    /* On very small screens hide decorative hero animations to avoid overlap */
+    .hero-animations {
+      display: none;
+    }
+    .hero-logo {
+      animation: none;
+    }
+    .feature-icon {
+      animation: none;
+    }
+  }
+
+  /* Respect user preference for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .hero-animations {
+      display: none !important;
+    }
+  }
   background: var(--white);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
@@ -980,5 +1007,164 @@ footer .btn {
   .stepper-body:not(.open),
   .faq-body:not(.open) {
     display: none;
+  }
+}
+
+/* ============== MOBILE TWEAKS (MOBILE-FIRST POLISH) ============== */
+@media (max-width: 430px) {
+  :root {
+    --border-radius: 12px;
+    --border-radius-lg: 16px;
+  }
+
+  /* Make main layout more compact on small screens */
+  .section {
+    padding: 36px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  /* HERO */
+  .hero {
+    height: auto;
+    min-height: 64vh;
+    padding: 64px 12px;
+    justify-content: flex-start;
+  }
+
+  .hero-logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 18px;
+    padding: 6px;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  .hero .tagline {
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+
+  /* Buttons full width and larger touch area */
+  .hero-buttons {
+    gap: 12px;
+  }
+
+  .hero .btn {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+
+  .btn-gradient,
+  .btn-primary {
+    min-height: 48px;
+  }
+
+  /* Tone down heavy animations that can overlap on small screens */
+  .hero-animations {
+    pointer-events: none;
+  }
+
+  .animation-item {
+    font-size: 2rem;
+    opacity: 0.22;
+  }
+
+  .animation-item.microscope {
+    top: 6%;
+    left: 4%;
+  }
+  .animation-item.planet {
+    top: 14%;
+    right: 6%;
+  }
+  .animation-item.dna {
+    bottom: 12%;
+    left: 6%;
+  }
+  .animation-item.atom {
+    bottom: 14%;
+    right: 8%;
+  }
+  .animation-item.leaf {
+    top: 24%;
+    right: 10%;
+  }
+
+  /* FEATURES -> single column */
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    padding: 20px 14px;
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+  }
+
+  /* CAROUSEL: larger snap area */
+  .carousel {
+    gap: 14px;
+    padding: 14px 0;
+  }
+
+  .carousel-item {
+    flex: 0 0 84%;
+  }
+
+  .carousel-dots {
+    margin-top: 12px;
+  }
+
+  /* STEPPER: compact */
+  .stepper-header {
+    padding: 16px;
+  }
+  .stepper-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  .stepper-body.open {
+    max-height: 1400px;
+  }
+
+  /* FAQ */
+  .faq-question {
+    font-size: 0.95rem;
+  }
+  .faq-answer {
+    padding: 16px;
+  }
+
+  footer {
+    padding: 36px 12px 24px;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero {
+    padding: 56px 12px;
+    min-height: 68vh;
+  }
+  .hero h1 {
+    font-size: 1.45rem;
+  }
+  .hero .tagline {
+    font-size: 0.98rem;
+  }
+  .animation-item {
+    font-size: 1.8rem;
+    opacity: 0.2;
   }
 }
