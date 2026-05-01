@@ -62,11 +62,3 @@ python -m http.server 8000
 Proyek ini dibuat sebagai materi edukasi. Silakan hubungi pemilik proyek untuk detail lisensi atau distribusi.
 
 ---
-
-Jika mau, saya bisa:
-
-- Menambahkan file CHANGELOG.md dan CONTRIBUTING.md
-- Menyempurnakan accessibility (a11y) dan tes Lighthouse ringan
-- Meng-generate build ZIP/installer untuk distribusi
-
-Ingin saya lanjutkan ke salah satu opsi di atas?
