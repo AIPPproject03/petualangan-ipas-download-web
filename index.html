@@ -5,14 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Petualangan IPAS - Aplikasi pembelajaran IPAS yang seru dan interaktif untuk siswa SD kelas 4 & 5">
+        content="Petualangan IPAS adalah aplikasi belajar IPAS interaktif untuk siswa SD kelas 4 dan 5 dengan petualangan seru, video belajar, misi, dan quiz online.">
+    <meta name="keywords"
+        content="Petualangan IPAS, aplikasi IPAS SD, belajar IPAS kelas 4, belajar IPAS kelas 5, APK edukasi, aplikasi belajar online, quiz IPAS, pembelajaran interaktif">
+    <meta name="author" content="Petualangan IPAS">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
     <meta name="theme-color" content="#1A6DB5">
+    <link rel="canonical" href="https://petualangan-ipas.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Petualangan IPAS">
+    <meta property="og:title" content="Petualangan IPAS - Aplikasi Belajar IPAS yang Seru">
+    <meta property="og:description"
+        content="Aplikasi belajar IPAS online untuk siswa SD kelas 4 dan 5 dengan petualangan, quiz, dan video pembelajaran.">
+    <meta property="og:url" content="https://petualangan-ipas.netlify.app/">
+    <meta property="og:image" content="https://petualangan-ipas.netlify.app/assets/img/logo.png">
+    <meta property="og:image:alt" content="Logo Petualangan IPAS">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Petualangan IPAS - Aplikasi Belajar IPAS yang Seru">
+    <meta name="twitter:description"
+        content="Aplikasi belajar IPAS online untuk siswa SD kelas 4 dan 5 dengan petualangan, quiz, dan video pembelajaran.">
+    <meta name="twitter:image" content="https://petualangan-ipas.netlify.app/assets/img/logo.png">
     <title>Petualangan IPAS - Aplikasi Belajar IPAS yang Seru</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.4.0/dist/driver.css">
     <link rel="stylesheet" href="assets/style.css">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Petualangan IPAS",
+            "url": "https://petualangan-ipas.netlify.app/",
+            "description": "Petualangan IPAS adalah aplikasi belajar IPAS interaktif untuk siswa SD kelas 4 dan 5.",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Petualangan IPAS"
+            },
+            "inLanguage": "id-ID",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://petualangan-ipas.netlify.app/?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+        </script>
 </head>
 
 <body>
@@ -45,6 +84,8 @@
                 <div class="hero-buttons">
                     <a href="apk/petualangan%20IPAS.apk" download class="btn btn-primary btn-download">⬇️ DOWNLOAD
                         SEKARANG</a>
+                    <button type="button" class="btn btn-primary btn-tour" id="startTourBtn">🧭 Panduan
+                        Download</button>
                     <a href="#download" class="btn btn-primary"
                         style="background: rgba(77, 174, 227, 0.8); color: var(--white);">📖 Cara Install</a>
                 </div>
@@ -154,6 +195,34 @@
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
 
+                <div class="warning-card" id="playProtectWarning">
+                    <div class="warning-card-header">
+                        <span class="warning-card-icon">⚠️</span>
+                        <div>
+                            <h3>Perhatian sebelum install</h3>
+                            <p>Android bisa menampilkan warning dari Google Play Protect saat APK diunduh atau dibuka.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="warning-card-body">
+                        <p>Jika muncul pesan seperti <strong>File might be harmful</strong> atau <strong>App scan
+                                recommended</strong>, itu normal untuk APK yang belum dikenal Google Play Protect.</p>
+                        <p>Untuk lanjut, pilih <strong>Download anyway</strong> lalu di Play Protect pilih
+                            <strong>Install without scanning</strong> agar instalasi tetap berjalan.
+                        </p>
+                    </div>
+                    <div class="warning-card-screenshots">
+                        <div class="warning-mockup">
+                            <div class="warning-mockup-title">File might be harmful</div>
+                            <div class="warning-mockup-subtitle">Pilih Download anyway</div>
+                        </div>
+                        <div class="warning-mockup play-protect">
+                            <div class="warning-mockup-title">Google Play Protect</div>
+                            <div class="warning-mockup-subtitle">Install without scanning</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="stepper">
                     <!-- STEP 1 -->
                     <div class="stepper-item active" data-step="1">
@@ -174,7 +243,8 @@
                                     <li>Buka <strong>Pengaturan</strong> (Settings) di HP kamu</li>
                                     <li>Cari menu <strong>Keamanan</strong> atau <strong>Privacy</strong></li>
                                     <li>Aktifkan <strong>"Instal aplikasi dari sumber tidak dikenal"</strong> atau
-                                        <strong>"Unknown sources"</strong></li>
+                                        <strong>"Unknown sources"</strong>
+                                    </li>
                                     <li>Pilih browser/file manager kamu → Izinkan</li>
                                 </ol>
                                 <div class="note-box">
@@ -219,16 +289,30 @@
                             <div class="stepper-number">3</div>
                             <div class="stepper-title-group">
                                 <div class="stepper-title">📲 Buka & Install File APK</div>
-                                <div class="stepper-subtitle">Proses instalasi hanya butuh beberapa detik</div>
+                                <div class="stepper-subtitle">Jika muncul warning Play Protect, lanjutkan tanpa scanning
+                                </div>
                             </div>
                         </div>
                         <div class="stepper-body">
                             <div class="stepper-content">
+                                <div class="install-warning-panel">
+                                    <strong>Yang akan kamu lihat:</strong>
+                                    <ul>
+                                        <li><strong>File might be harmful</strong> di browser saat download.</li>
+                                        <li><strong>App scan recommended</strong> dari Google Play Protect setelah file
+                                            dibuka.</li>
+                                    </ul>
+                                    <p>Kalau muncul, pilih <strong>Download anyway</strong> lalu lanjut dengan
+                                        <strong>Install without scanning</strong>.
+                                    </p>
+                                </div>
                                 <ol class="step-list">
                                     <li>Buka aplikasi <strong>File Manager</strong> atau <strong>Downloads</strong> di
                                         HP kamu</li>
                                     <li>Cari file <strong>PetualanganIPAS.apk</strong></li>
                                     <li>Tap file tersebut → muncul popup instalasi</li>
+                                    <li>Jika muncul warning, pilih <strong>Download anyway</strong> lalu <strong>Install
+                                            without scanning</strong></li>
                                     <li>Tap <strong>"Install"</strong> dan tunggu beberapa detik</li>
                                     <li>Tap <strong>"Buka"</strong> setelah selesai — selamat berpetualang! 🎉</li>
                                 </ol>
@@ -318,8 +402,9 @@
                         </div>
                         <div class="faq-body">
                             <div class="faq-answer">
-                                Internet dibutuhkan untuk login dan menonton video. Quiz bisa dikerjakan offline setelah
-                                video sudah didownload. Ini membantu siswa yang memiliki koneksi internet terbatas.
+                                Ya, aplikasi ini tetap membutuhkan internet untuk semua fitur: login, video belajar,
+                                sinkronisasi data, dan quiz. Tidak ada mode offline supaya materi, hasil, dan akses
+                                konten selalu terbaru.
                             </div>
                         </div>
                     </div>
@@ -348,12 +433,16 @@
             <div class="footer-logo">🎒 PETUALANGAN IPAS</div>
             <div class="footer-tagline">Belajar IPAS lebih seru, bersama!</div>
             <a href="apk/petualangan%20IPAS.apk" download class="btn btn-primary">⬇️ Download Aplikasi</a>
+            <a href="#download" class="btn btn-primary"
+                style="margin-left: 10px; background: rgba(77, 174, 227, 0.9); color: var(--white);">📖 Lihat Cara
+                Install</a>
             <div class="footer-credit">
                 Dibuat dengan ❤️ untuk siswa Indonesia · © 2025
             </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@1.4.0/dist/driver.js.iife.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
 

@@ -204,3 +204,94 @@ document.querySelectorAll('a[href*="apk/"]').forEach((btn) => {
     createConfetti();
   });
 });
+
+// ============== DRIVER.JS GUIDE ============== //
+const startTourBtn = document.getElementById("startTourBtn");
+
+function getDriverFactory() {
+  return window.driver?.js?.driver ?? window.driver?.driver ?? null;
+}
+
+function setTourButtonLoading(isLoading) {
+  if (!startTourBtn) {
+    return;
+  }
+
+  startTourBtn.classList.toggle("is-loading", isLoading);
+  startTourBtn.setAttribute("aria-busy", isLoading ? "true" : "false");
+}
+
+function startDownloadGuide() {
+  const driverFactory = getDriverFactory();
+
+  if (typeof driverFactory !== "function") {
+    document
+      .getElementById("download")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+
+  setTourButtonLoading(true);
+
+  const tour = driverFactory({
+    animate: true,
+    smoothScroll: true,
+    allowClose: true,
+    allowKeyboardControl: true,
+    overlayColor: "#102433",
+    overlayOpacity: 0.58,
+    stagePadding: 14,
+    stageRadius: 18,
+    popoverClass: "petualangan-tour",
+    showProgress: true,
+    progressText: "{{current}} / {{total}}",
+    nextBtnText: "Lanjut",
+    prevBtnText: "Kembali",
+    doneBtnText: "Selesai",
+    showButtons: ["previous", "next", "close"],
+    steps: [
+      {
+        element: "#startTourBtn",
+        popover: {
+          title: "Panduan Download",
+          description:
+            "Klik tombol ini kalau kamu mau dibimbing langsung ke alur download dan install.",
+          side: "bottom",
+          align: "center",
+        },
+      },
+      {
+        element: "#playProtectWarning",
+        popover: {
+          title: "Warning Play Protect",
+          description:
+            "Nanti akan muncul warning seperti File might be harmful atau App scan recommended. Lanjutkan dengan Download anyway lalu Install without scanning.",
+          side: "top",
+          align: "start",
+        },
+      },
+      {
+        element: '.stepper-item[data-step="2"] .stepper-header',
+        popover: {
+          title: "Langkah Download APK",
+          description:
+            "Setelah itu buka langkah download APK di bawah untuk mulai unduh file Petualangan IPAS.",
+          side: "top",
+          align: "start",
+        },
+      },
+    ],
+    onDestroyed: () => {
+      setTourButtonLoading(false);
+    },
+    onCloseClick: () => {
+      tour.destroy();
+    },
+  });
+
+  tour.drive();
+}
+
+if (startTourBtn) {
+  startTourBtn.addEventListener("click", startDownloadGuide);
+}
